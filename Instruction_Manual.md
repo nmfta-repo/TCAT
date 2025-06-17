@@ -191,8 +191,6 @@ CanCat is a m2 focused software, installed on the UTHP for use with the CanCat s
 
 > Note: this requires the purchase of a separate adapter to connect to the UTHP.
 
-Certainly! Here are the detailed descriptions of each software component along with their respective documentation links:
-
 ### IPython 3
 
 IPython 3 is an enhanced interactive Python shell offering advanced features such as introspection, rich media, shell syntax, tab completion, and history. It provides a robust environment for Python development, particularly beneficial for data analysis and scientific computing.
