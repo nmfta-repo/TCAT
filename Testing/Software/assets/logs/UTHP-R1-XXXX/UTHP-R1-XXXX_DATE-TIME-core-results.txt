@@ -1,1 +1,0 @@
-core, plc, and remote logs should be stored in the same directory

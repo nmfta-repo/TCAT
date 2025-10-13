@@ -1,7 +1,7 @@
-# UTHP User Manual
+# TCAT User Manual
 
 ## Table of Contents
-- [UTHP User Manual](#uthp-user-manual)
+- [TCAT User Manual](#tcat-user-manual)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Getting Started](#getting-started)
@@ -33,6 +33,7 @@
     - [Cannelloni](#cannelloni)
   - [System Maintenance](#system-maintenance)
   - [Tips and Tricks](#tips-and-tricks)
+  - [Reflash SD Card](#reflash-sd-card)
   - [Troubleshooting](#troubleshooting)
   - [References](#references)
   - [Version History](#version-history)
@@ -41,7 +42,7 @@
 
 ## Introduction
 
-This manual provides guidance on using the Yocto-based Linux operating system on the UTHP. It covers system navigation, networking, installed utilities, and general usage to help you get the most out heavy-vehicle cyber security research and development with the Ultimate Truck Hacking Platform (UTHP).
+This manual provides guidance on using the Yocto-based Linux operating system on the TCAT. It covers system navigation, networking, installed utilities, and general usage to help you get the most out heavy-vehicle cyber security research and development with the Truck Cybersecurity Assessment Tool (TCAT).
 
 ---
 
@@ -49,17 +50,17 @@ This manual provides guidance on using the Yocto-based Linux operating system on
 
 - **Default Login:**
   > Should be changed immediately after first login.
-  - Username: `uthp`
+  - Username: `nmfta`
   - Password: `UTHP-R1-XXXX` (where `XXXX` is the last four digits of the serial number)
 
-- **Accessing the UTHP:**
+- **Accessing the TCAT:**
   - Via serial debug port (USB UART)
     - This will usually be `/dev/ttyACM0` on Linux-based systems or `COMx` on Windows. Some programs you can use are:
       - `screen /dev/ttyACM0 115200` (Linux)
       - `PuTTY` or `Tera Term` (Windows)
       - `minicom` (Linux, requires setup)
       - `picocom` (Linux, requires setup)
-  - Via SSH over USB or Ethernet (i.e., over USB `ssh uthp@192.168.7.2`)
+  - Via SSH over USB or Ethernet (i.e., over USB `ssh nmfta@192.168.7.2`)
 
 ---
 
@@ -97,7 +98,7 @@ This manual provides guidance on using the Yocto-based Linux operating system on
 
 ## LEDS
 
-The UTHP has 4 LEDs on the front panel. The LED states are as follows:
+The TCAT has 4 LEDs on the front panel. The LED states are as follows:
 - **Power LED**: Indicates power status (solid blue when power supplied)
 - **Status LED**: Indicates system status (flashing green after operating system boot)
 - **CAN LED**: Indicate CAN0 bus activity (flashing orange when CAN messages are being received).
@@ -159,7 +160,7 @@ find / -name <command>
 
 ### PYTHON
 
-Python is a programming language that is widely used for scripting and automation tasks. The UTHP comes with Python 3 (https://docs.python.org/3/) and Python 2 (https://docs.python.org/2.7/) installed.
+Python is a programming language that is widely used for scripting and automation tasks. The TCAT comes with Python 3 (https://docs.python.org/3/) and Python 2 (https://docs.python.org/2.7/) installed.
 
 ### PYTHON-CAN
 
@@ -171,7 +172,7 @@ Python library for J1939 protocol: https://j1939.readthedocs.io/en/latest/.
 
 ### CAN-UTILS
 
-CAN utils (https://github.com/linux-can/can-utils) is a collection of Linux command-line tools for interacting with CAN (Controller Area Network) interfaces. These tools are commonly used for debugging, testing, and monitoring CAN bus communication. The suite includes utilities like `candump`, `cansend`, `canplayer`, and others. The UTHP has 4 CAN interfaces: `can0`, `can1`, `can2`, and `can3`, each corresponding to can1, can2, can3, and can4 on the UTHP.
+CAN utils (https://github.com/linux-can/can-utils) is a collection of Linux command-line tools for interacting with CAN (Controller Area Network) interfaces. These tools are commonly used for debugging, testing, and monitoring CAN bus communication. The suite includes utilities like `candump`, `cansend`, `canplayer`, and others. The TCAT has 4 CAN interfaces: `can0`, `can1`, `can2`, and `can3`, each corresponding to can1, can2, can3, and can4 on the TCAT.
 
 ### CMAP
 
@@ -183,13 +184,13 @@ Python-based packet manipulation tool: https://scapy.readthedocs.io/en/latest/.
 
 ### TRUCKDEVIL
 
-TruckDevil is a Python-based tool for CAN bus analysis and manipulation. It is designed to work with the UTHP and provides a user-friendly interface for interacting with CAN networks: https://github.com/LittleBlondeDevil/TruckDevil. The UTHP includes custom features provided by the forked repository: https://github.com/Spenc3rB/TruckDevil, to include m2 (https://www.macchina.cc/m2-introduction) style encoding over TCP and Serial from the UTHP usb0 and eth0 interfaces.
+TruckDevil is a Python-based tool for CAN bus analysis and manipulation. It is designed to work with the TCAT and provides a user-friendly interface for interacting with CAN networks: https://github.com/LittleBlondeDevil/TruckDevil. The TCAT includes custom features provided by the forked repository: https://github.com/Spenc3rB/TruckDevil, to include m2 (https://www.macchina.cc/m2-introduction) style encoding over TCP and Serial from the TCAT usb0 and eth0 interfaces.
 
 ### CANCAT
 
-CanCat is a m2 focused software, installed on the UTHP for use with the CanCat specific firmware. It provides a way to capture and transmit arbitrary CAN bus messages, an architecture for analyzing and identifying messages, and a manner for data to be shared.
+CanCat is a m2 focused software, installed on the TCAT for use with the CanCat specific firmware. It provides a way to capture and transmit arbitrary CAN bus messages, an architecture for analyzing and identifying messages, and a manner for data to be shared.
 
-> Note: this requires the purchase of a separate adapter to connect to the UTHP.
+> Note: this requires the purchase of a separate adapter to connect to the TCAT.
 
 ### IPython 3
 
@@ -257,7 +258,7 @@ Cannelloni is a tool that tunnels CAN (Controller Area Network) traffic over Eth
 
 Repository: https://github.com/mguentner/cannelloni
 
-These tools collectively enhance the capabilities of the UTHP, providing a comprehensive suite for interacting with, analyzing, and manipulating vehicle communication networks and protocols. 
+These tools collectively enhance the capabilities of the TCAT, providing a comprehensive suite for interacting with, analyzing, and manipulating vehicle communication networks and protocols. 
 
 ---
 
@@ -292,8 +293,39 @@ These tools collectively enhance the capabilities of the UTHP, providing a compr
   poweroff
   ```
 
-- The UTHP has a safe shutdown feature, which is powered by two supercapacitors. The UTHP may need to be charged for a few minutes before the safe shutdown feature will work, and may not boot properly otherwise.
+- The TCAT has a safe shutdown feature, which is powered by two supercapacitors. The TCAT may need to be charged for a few minutes before the safe shutdown feature will work, and may not boot properly otherwise.
 ---
+
+## Reflash SD Card
+
+Download a .wic.xz file from https://github.com/nmfta-repo/TCAT/releases/. Then flash it to a microSD card. This process has been verified using Balena Etcher: https://etcher.balena.io/. Download the image .wic.xz directly, extract if needed, then flash from there.
+
+> emmc-flasher Notes :
+> The .wic.xz image file includes what is considered a pre-production image, and should be flashed to the embedded Multi-Media Card (eMMC) using the emmc-flasher utility built into the image. Some important things to remember when using emmc-flasher:
+> * The utility will automatically reboot the OS if overlays have not been applied using the update-overlays utility.
+> * Once finished, the utilty will notify the user to shutdown, remove the microSD card, and verify the eMMC boots.
+> * The utility automatically sets the password based on the serial number given, and locks the root user for security reasons. If using the same microSD card, note down the serial number to login and flash another unit with the `nmfta` user (i.e., the image completes a setup process before it gets flashed to the eMMC).
+> * You may need to completely power cycle the device or hold down the s2 button if the device has issues booting during this process.
+
+1. Insert the microSD card, power the device via USB, then login as `root:ultimate` or `nmfta:UTHP-R1-XXXX` (where `XXXX` is the last four digits of the serial number) depending on the conditions mentioned above:
+
+```
+ssh <user>@192.168.7.2
+```
+
+2. Plug the device into any ethernet interface to gain access to the internet. This is needed for the flashing process to grab important updates, and update the hardware clock if available.
+
+3. Run the eMMC flashing utility
+
+```
+sudo emmc-flasher
+```
+
+4. Wait for the device to reboot if the overlays were updated, then run emmc-flasher again.
+
+> Note: The flashing process ensures that file integrity is preserved using rsync, which slows the process down to about 15 mins max.
+
+5. After the device has been fully flashed, you will be prompted to power cycle the device. Take out the microSD card, and enjoy the fruits of your labor!
 
 ## Troubleshooting
 
@@ -303,7 +335,7 @@ These tools collectively enhance the capabilities of the UTHP, providing a compr
 
 - **Device won’t boot?**
   - Check serial debug output (will need to be soldered)
-  - Reflash SD card: https://github.com/SystemsCyber/UTHP/releases/
+  - Reflash SD card: https://github.com/nmfta-repo/TCAT/releases/
 
 ---
 
@@ -312,10 +344,11 @@ These tools collectively enhance the capabilities of the UTHP, providing a compr
 - [Yocto Project Documentation](https://docs.yoctoproject.org/)
 - [BeagleBone Black Wiki](https://beagleboard.org/black)
 - [Systemd Documentation](https://www.freedesktop.org/wiki/Software/systemd/)
-- [UTHP GitHub](https://github.com/SystemsCyber/UTHP)
-- [meta-uthp GitHub](https://github.com/SystemsCyber/meta-uthp)
+- [TCAT GitHub](https://github.com/nmfta-repo/TCAT)
+- [meta-tcat GitHub](https://github.com/nmfta-repo/meta-tcat)
 
 ---
 
 ## Version History
+- **Version 1.0.5: NMFTA first release
 - **Version 1.0** – Initial release 4/8/2025. `TruckHacking OS 1.0.4`

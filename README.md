@@ -1,8 +1,17 @@
-## Ultimate Truck Hacking Platform (UTHP)
+## Truck Cybersecurity Assessment Tool (TCAT)
 
-Welcome to the Ultimate Truck Hacking Platform (UTHP) repository. This repository contains the source code and documentation for the UTHP project. 
+Welcome to the NMFTA Truck Cybersecurity Assessment Tool (TCAT) releases, using and extending the [UTHP](https://github.com/SystemsCyber/UTHP), a project developed and completed in collaboration with the NMFTA.
+* Hardware documentation is at https://github.com/SystemsCyber/UTHP/tree/main/Hardware
+* Software testing artifacts are located at https://github.com/SystemsCyber/UTHP/tree/main/Testing
 
-1. To get started on the Debian version of the UTHP, please refer to the [OSBuildInstructions](./Debian/OSBuildInstructions.MD) under the [Debian](./Debian) directory.
-2. To get started on the Yocto Project version of the UTHP, please refer to the [README.md](./Yocto/README.md) under the [Yocto](./Yocto) directory.
-3. Software testing artifacts are located under the [Software Testing](./Testing/Software/) directory. Also note [QA logs](./Testing/Software/assets/logs/README.md) are contained for each UTHP built, ensuring each system is built to it's intended purpose. Hardware testing artifacts are located under the [Hardware Testing](./Testing/Hardware/) directory.
-4. Hardware documentation is located under the [Hardware](./Hardware) directory.
+### Getting Started
+
+Download and flash the latest release https://github.com/nmfta-repo/TCAT/releases
+
+### User Guide
+
+The user guide is here: [User Guide](Instruction_Manual.md)
+
+### Building
+
+Yocto build instructions: https://github.com/nmfta-repo/meta-tcat
