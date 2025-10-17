@@ -51,7 +51,7 @@ This manual provides guidance on using the Yocto-based Linux operating system on
 - **Default Login:**
   > Should be changed immediately after first login.
   - Username: `nmfta`
-  - Password: `UTHP-R1-XXXX` (where `XXXX` is the last four digits of the serial number)
+  - Password: <same as hostname> e.g. `UTHP-R1-XXXX` (where `XXXX` is the last four digits of the serial number) or `MyTruckDuck77`. Hostname is printed on login.
 
 - **Accessing the TCAT:**
   - Via serial debug port (USB UART)
@@ -271,7 +271,7 @@ These tools collectively enhance the capabilities of the TCAT, providing a compr
 
 - **Monitor CPU/memory:**
   ```bash
-  top
+  htop
   ```
 
 - **Edit startup scripts:**
@@ -307,7 +307,7 @@ Download a .wic.xz file from https://github.com/nmfta-repo/TCAT/releases/. Then 
 > * The utility automatically sets the password based on the serial number given, and locks the root user for security reasons. If using the same microSD card, note down the serial number to login and flash another unit with the `nmfta` user (i.e., the image completes a setup process before it gets flashed to the eMMC).
 > * You may need to completely power cycle the device or hold down the s2 button if the device has issues booting during this process.
 
-1. Insert the microSD card, power the device via USB, then login as `root:ultimate` or `nmfta:UTHP-R1-XXXX` (where `XXXX` is the last four digits of the serial number) depending on the conditions mentioned above:
+1. Insert the microSD card, power the device via USB, then login as `root:ultimate` or `nmfta:<hostname>` depending on the conditions mentioned above:
 
 ```
 ssh <user>@192.168.7.2
