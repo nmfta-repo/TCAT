@@ -14,4 +14,4 @@ The user guide is here: [User Guide](Instruction_Manual.md)
 
 ### Building
 
-Yocto build instructions: https://github.com/nmfta-repo/meta-tcat
+Yocto build instructions: https://github.com/TruckHacking/meta-tcat

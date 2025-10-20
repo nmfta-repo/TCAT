@@ -345,7 +345,7 @@ sudo emmc-flasher
 - [BeagleBone Black Wiki](https://beagleboard.org/black)
 - [Systemd Documentation](https://www.freedesktop.org/wiki/Software/systemd/)
 - [TCAT GitHub](https://github.com/nmfta-repo/TCAT)
-- [meta-tcat GitHub](https://github.com/nmfta-repo/meta-tcat)
+- [meta-tcat GitHub](https://github.com/TruckHacking/meta-tcat)
 
 ---
 
