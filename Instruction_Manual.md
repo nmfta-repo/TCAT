@@ -48,10 +48,12 @@ This manual provides guidance on using the Yocto-based Linux operating system on
 
 ## Getting Started
 
+When booting the TCAT, always connect USB cable first, and then add the vehicle 12VDC power shortly thereafter via any one of DB15 , Deutsch-9 or banana jack connectors.
+
 - **Default Login:**
   > Should be changed immediately after first login.
   - Username: `nmfta`
-  - Password: <same as hostname> e.g. `UTHP-R1-XXXX` (where `XXXX` is the last four digits of the serial number) or `MyTruckDuck77`. Hostname is printed on login.
+  - Password: same as hostname e.g. `UTHP-R1-XXXX` (where `XXXX` is the last four digits of the serial number) or `MyTruckDuck77`. Hostname is printed on login.
 
 - **Accessing the TCAT:**
   - Via serial debug port (USB UART)
@@ -307,7 +309,7 @@ Download a .wic.xz file from https://github.com/nmfta-repo/TCAT/releases/. Then 
 > * The utility automatically sets the password based on the serial number given, and locks the root user for security reasons. If using the same microSD card, note down the serial number to login and flash another unit with the `nmfta` user (i.e., the image completes a setup process before it gets flashed to the eMMC).
 > * You may need to completely power cycle the device or hold down the s2 button if the device has issues booting during this process.
 
-1. Insert the microSD card, power the device via USB, then login as `root:ultimate` or `nmfta:<hostname>` depending on the conditions mentioned above:
+1. Insert the microSD card, power the device via USB (not from vehicle 12V supply), then login as `root:ultimate` or `nmfta:<hostname>` depending on the conditions mentioned above:
 
 ```
 ssh <user>@192.168.7.2
@@ -315,17 +317,19 @@ ssh <user>@192.168.7.2
 
 2. Plug the device into any ethernet interface to gain access to the internet. This is needed for the flashing process to grab important updates, and update the hardware clock if available.
 
-3. Run the eMMC flashing utility
+3. In addition to powering the device from USB to boot it for the above step, connect it to vehicle 12V supply after that and before running the following eMMC flashing utility (failure to connect to 12VDC power here could result in a brown out and shutdown during the flashing utility execution)
 
 ```
 sudo emmc-flasher
 ```
 
-4. Wait for the device to reboot if the overlays were updated, then run emmc-flasher again.
+4. Wait for the device to reboot if the overlays were updated (which they most likely will be), then login again (using root account) and run emmc-flasher again.
 
 > Note: The flashing process ensures that file integrity is preserved using rsync, which slows the process down to about 15 mins max.
 
 5. After the device has been fully flashed, you will be prompted to power cycle the device. Take out the microSD card, and enjoy the fruits of your labor!
+
+6. If planning to reflash multiple TCATs: before proceeding to the next TCAT restore the sd card to its original state by flash the .wic.xz to it again.
 
 ## Troubleshooting
 
@@ -334,7 +338,7 @@ sudo emmc-flasher
   - Check host-side USB-over-Ethernet driver
 
 - **Device won’t boot?**
-  - Check serial debug output (will need to be soldered)
+  - Check serial debug output (debug header will need to be soldered; and refer to https://github.com/nmfta-repo/TCAT/issues/4 for the correct pinout to use)
   - Reflash SD card: https://github.com/nmfta-repo/TCAT/releases/
 
 ---
