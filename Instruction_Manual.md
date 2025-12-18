@@ -340,6 +340,7 @@ sudo emmc-flasher
 - **Device won’t boot?**
   - Check serial debug output (debug header will need to be soldered; and refer to https://github.com/nmfta-repo/TCAT/issues/4 for the correct pinout to use)
   - Reflash SD card: https://github.com/nmfta-repo/TCAT/releases/
+  - Check voltages applied to CANH and CANL pins (either banana jack, DB-15, or Deutsch-9): do not apply battery voltage to these pins.
 
 ---
 
